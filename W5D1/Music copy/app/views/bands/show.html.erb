@@ -1,0 +1,26 @@
+<section class="band-index-header">Check out this awesome band!</section>
+
+<%= render 'band', band: @band %>
+
+<ul class="band-show-controls">
+  <a class="edit-button button" href="<%=edit_band_url(@band)%>">Edit Band</a>
+
+
+<form action="<%=band_url(@band)%>" method="post">
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+  <input type="hidden" name="_method" value="DELETE">
+  <input class="delete-button button" type="submit" value="Delete Band">
+
+</form>
+</ul>
+
+<section class="album-display">
+<label class="band-album-header">Look at all these cool albums!</label>
+<ol>
+<% @albums.each do |album| %>
+  <li><%= render 'albums/album', album: album %></li>
+<% end %>
+</ol>
+</section>
+
+<a class="button add-album-button" href="<%= new_band_album_url(@band.id)%>">Add an Album</a>

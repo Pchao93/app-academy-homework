@@ -1,0 +1,11 @@
+<%= track.ord %>  <%= track.title %>
+<br>
+<%= track.lyrics %>
+<a class ="track-permalink" href="<%= track_url(track) %>">permalink</a>
+<a class ="track-edit-link" href="<%= edit_track_url(track) %>">Edit Track</a>
+<form action="<%=track_url(track)%>" method="post">
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+  <input type="hidden" name="_method" value="DELETE">
+  <input class="delete-button" type="submit" value="Delete Track">
+
+</form>

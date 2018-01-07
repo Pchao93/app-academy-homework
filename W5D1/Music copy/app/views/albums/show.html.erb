@@ -1,0 +1,9 @@
+look at this singular album!
+
+<%= render 'album', album: @album %>
+
+Look at all these cool tracks!
+
+<% @tracks.each do |track| %>
+  <%= render 'tracks/track', track: track %>
+<% end %>

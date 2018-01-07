@@ -1,0 +1,41 @@
+
+
+
+
+<form class="track-forms" action="<%= action == :new ? tracks_url : tracks_url(track) %>" method="post">
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+
+  Title
+  <input type="text" name="track[title]" value="<%= track.title %>">
+  Track #
+  <input type="text" name="track[ord]" value="<%= track.ord %>">
+  Album
+  <select class="album-select" name="track[album_name]">
+    <option disabled selected>Please select an album</option>
+    <% albums.each do |album| %>
+      <option value="<%=album.title%>" <%= "selected" if album == track.album %>> <%=album.title%> </option>
+    <% end %>
+
+  </select>
+
+  <input type="radio" name="track[bonus]" value="true" <%= "checked" if track.bonus == true %>> Bonus Track
+  <input type="radio" name="track[bonus]" value="false" <%= "checked" if track.bonus == false %>> Regular Track
+
+  <textarea name="track[lyrics]" rows="8" cols="80"><%= track.lyrics %></textarea>
+
+
+  <input type="submit" value="Create Track">
+
+
+</form>

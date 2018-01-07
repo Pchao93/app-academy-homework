@@ -1,0 +1,37 @@
+
+
+
+
+<form class="album-forms" action="<%= action == :new ? albums_url : album_url(album) %>" method="post">
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+
+  Title
+  <input type="text" name="album[title]" value="<%= album.title %>">
+  Year
+  <input type="text" name="album[year]" value="<%= album.year %>">
+  Band
+  <select class="band-select" name="album[band_name]">
+    <option disabled selected>Please select a band</option>
+    <% bands.each do |band| %>
+      <option value="<%=band.name%>" <%= "selected" if band == album.band %>> <%=band.name%> </option>
+    <% end %>
+
+  </select>
+  Studio/Live
+
+  <input type="radio" name="band[studio]" value="true" <%= "checked" if album.studio == true %>> Studio
+  <input type="radio" name="band[studio]" value="false" <%= "checked" if album.studio == false %>> Live
+
+  <input type="submit" value="Create Album">
+
+
+</form>

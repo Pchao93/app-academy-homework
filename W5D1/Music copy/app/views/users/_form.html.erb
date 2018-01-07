@@ -1,0 +1,30 @@
+
+<style>
+  .log-in-box {
+    display: none;
+  }
+</style>
+
+<section class="user-form">
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+
+<form class="user-form" action= "<%= action == :users ? users_url : session_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <section class="email">
+    <label>Email</label><input type="text" name="user[email]" value="<%= user.email %>" >
+  </section>
+
+  <section class="password">
+    <label>Password</label><input type="password" name="user[password]" value="<%= user.password %>" >
+  </section>
+
+  <input class="button" type="submit" value="<%= action == :users ? "Sign Up" : "Sign In"%>">
+
+</form>
+
+</section>

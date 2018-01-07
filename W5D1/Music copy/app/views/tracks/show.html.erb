@@ -1,0 +1,32 @@
+<%= render 'tracks/track', track: @track %>
+
+
+Leave a Note
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<section class="note-form-box">
+
+<form class="note-form" action= "<%=track_notes_url(@track)%>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <section class="note-form-inputs">
+    <label>Content:</label> <input type="text" name="note[content]" value="<%= @note.content %>" >
+  </section>
+
+  <input class="button" type="submit" value="Leave a note!">
+
+</form>
+
+</section>
+
+
+Previous Notes
+
+<% @notes.each do |note| %>
+<%= render 'notes/note', note: note %>
+<% end %>

@@ -1,0 +1,17 @@
+<section class="album-box">
+<ul class="album-information">
+<li><span><a class ="album-permalink" href="<%= album_url(album) %>">Album Title: </a></span><%= album.title %></li>
+<li><span>Album Artist: </span><%= album.band.name %></li>
+<li><span>Album Year: </span><%= album.year %></li>
+</ul>
+<ul class="album-controls">
+<!-- <a class ="button album-permalink" href="<%= album_url(album) %>">Permalink</a> -->
+<a class ="button album-edit-link" href="<%= edit_album_url(album) %>">Edit Album</a>
+<form action="<%=album_url(album)%>" method="post">
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+  <input type="hidden" name="_method" value="DELETE">
+  <input class=" button delete-button" type="submit" value="Delete Album">
+
+</form>
+</ul>
+</section>

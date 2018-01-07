@@ -1,0 +1,22 @@
+<section class="band-form-box">
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+<form class="band-form" action= "<%= action == :new ? bands_url : band_url(band) %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <section class="name">
+    <label>Band Name:</label> <input type="text" name="band[name]" value="<%= band.name %>" >
+  </section>
+
+  <input class="button" type="submit" value="<%= action == :new ? "Create Band" : "Change Band"%>">
+
+</form>
+
+</section>

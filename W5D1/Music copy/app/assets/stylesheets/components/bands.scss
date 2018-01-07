@@ -1,0 +1,134 @@
+// Place all the styles related to the bands controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "base/colors";
+
+
+.band-form {
+  display: flex;
+
+}
+
+.band-form input[type="text"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  margin-top: 3px;
+  border: 1px solid black;
+  border-radius: 3px;
+  display: block;
+  width: 300px;
+}
+
+.band-form label {
+
+}
+
+.band-display ul {
+  // width: 150px;
+  display: flex;
+
+}
+
+.band-display li {
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 100%;
+  padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 36px;
+  text-align: center;
+  background: $light-blue;
+}
+
+.band-display a {
+  text-decoration: none;
+}
+
+.band-display a:hover {
+  color: $gray;
+}
+
+.band-index-header {
+  font-size: 36px;
+  margin: 0 auto;
+  display: none;
+  // border: 1px solid black;
+  text-align: center;
+
+}
+
+.new-band-button {
+  margin-top: 15px;
+  position: absolute;
+}
+
+.edit-button {
+  // position: absolute;
+  // margin: 100px;
+}
+
+.delete-button {
+  margin-left: 5px;
+  // display: block;
+  // top: 15px;
+  // position: absolute;
+}
+
+.band-show-controls {
+  // border: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.album-display {
+  // border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-display label {
+  // border: 1px solid black;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.album-display ol {
+  // border: 1px solid black;
+  -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+  padding: 5px;
+}
+
+.album-display li {
+  // border: 1px solid black;
+}
+
+.add-album-button {
+  position: absolute;
+  margin-top: 100px;
+}
+
+.band-form-box form {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  width: 50%
+}
+
+.name {
+  display: flex;
+  align-items: center;
+}
+
+.name input {
+  margin-left: 10px;
+  width: 300px;
+}
+
+.new-edit-header {
+  font-size: 36px;
+}

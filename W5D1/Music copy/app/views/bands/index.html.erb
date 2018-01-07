@@ -1,0 +1,8 @@
+
+<section class="band-index-header">Look at all these cool bands!</section>
+
+<% @bands.each do |band| %>
+  <%= render 'band', band: band%>
+<% end %>
+
+<a class="new-band-button button" href="<%=new_band_url %>" >add a new band</a>
