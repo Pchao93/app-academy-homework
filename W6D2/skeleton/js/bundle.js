@@ -163,7 +163,7 @@ View.prototype.exercise6 = function () {
   //hint: use window._randomColorString() (defined at top) to get a random color!
 
   //your code here!
-  $('.square').addClass(_randomColorString());
+  // $('.square').addClass(_randomColorString());
 };
 
 View.prototype.exercise7 = function(){
