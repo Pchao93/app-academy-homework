@@ -4,7 +4,7 @@ console.log("Hello from the JavaScript console!");
 
 $.ajax({
   type: 'GET',
-  url: "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=bcb83c4b54aee8418983c2aff3073b3b",
+  url: "http://api.openweathermap.org/data/2.5/weather?q=new%20york,US&appid=ad1bb21b7cf64cd7e30b7dba83b51ce8",
   success(data) {
     console.log("We have your weather!");
     console.log(data);
