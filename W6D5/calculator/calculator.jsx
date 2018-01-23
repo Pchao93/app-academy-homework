@@ -15,64 +15,70 @@ class Calculator extends React.Component{
     this.subtract = this.subtract.bind(this);
     this.multiply = this.multiply.bind(this);
     this.divide = this.divide.bind(this);
-    this.clear = this.clear.bind(this);
+    this.clear = this.reset.bind(this);
   }
 
   //your code here
 
-  setNum1(e) {
-    const num1 = e.target.value ? parseInt(e.target.value) : "";
-    this.setState({ num1 });
+  setNum1(event) {
+    event.preventDefault();
+    let val = Number(event.target.value);
+
+    this.setState({ num1: val });
+
   }
 
-  setNum2(e){
-    const num2 = e.target.value ? parseInt(e.target.value) : "";
-    this.setState({ num2 });
+  setNum2(event) {
+    event.preventDefault();
+    let val = Number(event.target.value);
+    this.setState({ num2: val });
   }
 
-  add(e){
-    e.preventDefault();
-    const result = this.state.num1 + this.state.num2;
-    this.setState({ result });
+  add(event) {
+    event.preventDefault();
+    this.setState({result: this.state.num1 + this.state.num2});
   }
 
-  subtract(e){
-    e.preventDefault();
-    const result = this.state.num1 - this.state.num2;
-    this.setState({ result });
+  subtract(event) {
+    event.preventDefault();
+    this.setState({result: this.state.num1 - this.state.num2});
   }
 
-  multiply(e){
-    e.preventDefault();
-    const result = this.state.num1 * this.state.num2;
-    this.setState({ result });
+  divide(event) {
+    event.preventDefault();
+    this.setState({result: this.state.num1 / this.state.num2});
   }
 
-  divide(e){
-    e.preventDefault();
-    const result = this.state.num1 / this.state.num2;
-    this.setState({ result });
+  multiply(event) {
+    event.preventDefault();
+    this.setState({result: this.state.num1 * this.state.num2});
   }
 
-  clear(e){
-    e.preventDefault();
-    this.setState({ num1: "", num2: "", result: 0 });
+  reset(event) {
+    event.preventDefault();
+    this.setState({
+      num1: "",
+      num2: ""
+    });
   }
-
-  render(){
-    const { num1, num2, result } = this.state;
+          // <button onClick={this.click}></button>
+  render() {
     return (
       <div>
-        <h1>{result}</h1>
-
-        <input onChange={this.setNum1} value={num1}/>
-        <input onChange={this.setNum2} value={num2}/>
-        <button onClick={this.clear}>Clear</button>
-        <br />
+        <h1>{this.state.result}</h1>
+        <label>
+          num1
+          <input onChange={this.setNum1} type="text" name="num1" value={this.num1}/>
+        </label>
+        <label>
+          num2
+          <input onChange={this.setNum2} type="text" name="num2" value={this.num2}/>
+        </label>
         <button onClick={this.add}>+</button>
         <button onClick={this.subtract}>-</button>
         <button onClick={this.multiply}>*</button>
         <button onClick={this.divide}>/</button>
+        <button onClick={this.reset}>RESET</button>
       </div>
     );
   }
